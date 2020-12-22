@@ -1,0 +1,47 @@
+﻿@model GiraffeBooking.Models.Booking
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h4>Are you sure you want to delete this booking?</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="DeleteConfirmed" method="post">
+
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group">
+                <label class="control-label">Giraffe name</label>
+                <input asp-for="GiraffeName" disabled class="form-control" />
+            </div>
+            <!--BookedDate-->
+            <div class="form-group">
+                <label class="control-label">Booked date</label>
+                <input asp-for="BookedDate" disabled class="form-control" />
+            </div>
+            <!--UserName-->
+            <div class="form-group">
+                <label class="control-label">User name</label>
+                <input asp-for="UserName" disabled class="form-control" />
+            </div>
+            <!--Email-->
+            <div class="form-group">
+                <label class="control-label">Email</label>
+                <input asp-for="Email" disabled class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Delete" class="btn btn-danger" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<GiraffeBooking.Models.Giraffe>
+
+
+@{
+    ViewData["Title"] = "List of giraffes";
+}
+
+<h1>Our giraffes</h1>
+
+<p>
+    <a asp-action="Create">Add a giraffe</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Degree of tameness
+            </th>
+            <th>
+                Size
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var giraffe in Model)
+        {
+        <tr>
+            <td>@giraffe.Name</td>
+            <td>@giraffe.DegreeOfTameness</td>
+            <td>@giraffe.Size</td>
+            <td>@giraffe.Price</td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@giraffe.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@giraffe.Id">Edit</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+
+
+</table>

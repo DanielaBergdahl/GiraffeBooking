@@ -1,0 +1,48 @@
+﻿@model GiraffeBooking.Models.Giraffe
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Add</h1>
+
+<h4>Add a giraffe</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+            <div class="form-group">
+                <label class="control-label">Name</label>
+                <input class="form-control" asp-for="Name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Degree of tameness</label>
+                <input class="form-control" asp-for="DegreeOfTameness" />
+                <span asp-validation-for="DegreeOfTameness" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Size</label>
+                <input class="form-control" asp-for="Size" />
+                <span asp-validation-for="Size" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Price</label>
+                <input class="form-control" asp-for="Price" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

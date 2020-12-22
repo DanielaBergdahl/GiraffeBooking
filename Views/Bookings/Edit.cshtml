@@ -1,0 +1,54 @@
+﻿@model GiraffeBooking.Models.ViewModels.EditBookingViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit your booking</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
+            <input hidden asp-for="Booking.Id" />
+            <!--Giraffe-->
+            <div class="form-group">
+                <label class="control-label">Giraffe</label>
+                <select class="form-control" asp-for="Booking.GiraffeId"
+                        asp-items="@(new SelectList(Model.Giraffes, "Id","Name"))">
+                </select>
+            </div>
+            <!--BookedDate-->
+            <div class="form-group">
+                <label class="control-label">Booked date</label>
+                <input asp-for="Booking.BookedDate" class="form-control" />
+                <span asp-validation-for="Booking.BookedDate" class="text-danger"></span>
+            </div>
+            <!--UserName-->
+            <div class="form-group">
+                <label class="control-label">Your name</label>
+                <input asp-for="Booking.UserName" class="form-control" />
+                <span asp-validation-for="Booking.UserName" class="text-danger"></span>
+
+            </div>
+            <!--Email-->
+            <div class="form-group">
+                <label class="control-label">Email</label>
+                <input asp-for="Booking.Email" class="form-control" />
+                <span asp-validation-for="Booking.Email" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
